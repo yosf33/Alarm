@@ -1,0 +1,27 @@
+Index: app/src/main/java/com/example/alarm/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/alarm/MainActivity.kt b/app/src/main/java/com/example/alarm/MainActivity.kt
+--- a/app/src/main/java/com/example/alarm/MainActivity.kt	
++++ b/app/src/main/java/com/example/alarm/MainActivity.kt	(date 1694893434189)
+@@ -41,8 +41,7 @@
+             .build()
+ 
+         picker.show(
+-            supportFragmentManager, "foxandroid")
+-        , picker.addOnPositiveButtonClickListener() {
++            supportFragmentManager, "foxandroid", picker.addOnPositiveButtonClickListener() {
+                 if (picker.hour > 12) {
+                     binding.timer.text =
+                         String.format("%02", picker.hour - 12) + ":" + String.format(
+@@ -60,6 +59,8 @@
+                 calender[Calendar.HOUR_OF_DAY] = picker.hour
+                 calender[Calendar.MINUTE] = picker.minute
+                 calender[Calendar.SECOND] = 0
++                picker.hour[Calendar.MILLISECOND] = 0
++
+             }
+     }
+ }
